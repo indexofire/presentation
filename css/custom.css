@@ -1,0 +1,22 @@
+#title {
+    text-align: center;
+}
+
+#title h3 {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 200px 0px 100px 0px;
+    color: #333;
+    text-shadow: 2px 2px 0 #CCC;
+}
+
+#title p {
+    font-size: 24px;
+    color: #333;
+    padding-bottom: 50px;
+}
+
+p.title {
+    font-size: 48px;
+    text-align: center;
+}
