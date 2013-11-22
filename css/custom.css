@@ -1,22 +1,45 @@
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+          url('../fonts/League_Gothic-webfont.woff') format('woff'),
+          url('../fonts/League_Gothic-webfont.ttf') format('truetype'),
+          url('../fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.hidden {
+    opacity:0;
+}
+
 #title {
     text-align: center;
+    margin-top: -50px;
 }
-
-#title h3 {
-    font-size: 48px;
-    font-weight: bold;
-    padding: 200px 0px 100px 0px;
-    color: #333;
-    text-shadow: 2px 2px 0 #CCC;
-}
-
 #title p {
-    font-size: 24px;
+    font-size: 80px;
     color: #333;
-    padding-bottom: 50px;
+    text-shadow: 3px 3px 0 #BABABA;
+    line-height: 80px;
+    font-weight: bold;
+}
+.company, .author {
+    font-size: 24px;
+    color: #444;
+}
+.company {
+    float: left;
+    padding-left: 100px;
+}
+.author {
+    float: right;
+    padding-right: 90px;
 }
 
-p.title {
-    font-size: 48px;
+.huge {
+    font-family: LeagueGothicRegular, sans-serif;
+    font-size: 200px;
     text-align: center;
+    text-shadow: 3px 3px 0 #BABABA;
+    color: #333;
 }
