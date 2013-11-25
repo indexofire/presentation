@@ -63,6 +63,15 @@
   <div id="why" class="step" data-x="-5000" data-y="200000" data-scale="300">
     <p class="huge">WHY WE DO?</p>
   </div>
+  <div id="why1" class="step" data-x="400000" data-y="200000" data-rotate-y="90" data-scale="300">
+    <p class="middle">改善疾控实验室之间信息交流和共享渠道</p>
+  </div>
+  <div id="why2" class="step" data-x="400000" data-y="350000" data-rotate-y="90" data-scale="350">
+    <p class="middle">为网络实验室提供网络平台</p>
+  </div>
+  <div id="why3" class="step" data-x="400000" data-y="500000" data-rotate-y="90" data-scale="400">
+    <p class="middle">为研究工作提供技术支撑</p>
+  </div>
 
   <!-- How -->
   <div id="how" class="step" data-x="-5000" data-y="500000" data-scale="400">
@@ -93,16 +102,117 @@
     </p>
     </div>
   </div>
-
   <div id="how6" class="step hidden" data-x="41200" data-y="499500" data-scale="16">
     <div style="border: dashed 5px">
       <img src="img/app.png" />
     </div>
   </div>
 
+  <!-- Introduction -->
+  <div id="intro" class="step" data-x="50000" data-y="560000" data-scale="10">
+    <p class="huge">INTRODUCTION</p>
+  </div>
+
+  <div id="backend" class="step animar" data-x="50000" data-y="570000" data-scale="10">
+    <p class="font tech-size">BACKENDS <span class="salmon"><i class="fa fa-cogs"></i></span></p>
+    <ul class="text-center ">
+      <li class="clip img-circle">
+        <img src="img/python.png" class="compass" />
+        <span class="title_sub_tech">Python</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/pony.png" class="compass" />
+        <span class="title_sub_tech">Django</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/gunicorn.png" class="compass" />
+        <span class="title_sub_tech">Gunicorn</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/nginx.png" class="compass" />
+        <span class="title_sub_tech">Nginx</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/nodejs.png" class="compass"/>
+        <span class="title_sub_tech">Node.js</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/mysql.png" class="compass" />
+        <span class="title_sub_tech">MySQL</span>
+      </li>
+      <li class="clip img-circle big_one">
+        <img src="img/postgresql.png" class="compass"/>
+        <span class="title_sub_tech">PostgreSQL</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/redis.png" class="compass" />
+        <span class="title_sub_tech">Redis</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/memcached.png" class="compass" />
+        <span class="title_sub_tech">Memcached</span>
+      </li>
+      <li class="clip img-circle big_one">
+        <img src="img/sphinx.png" class="compass" />
+        <span class="title_sub_tech">Sphinx</span>
+      </li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+
+  <div id="frontend" class="step animar" data-x="50000" data-y="580000" data-scale="10">
+    <p class="font tech-size">FRONTEND <span class="salmon"><i class="fa fa-desktop"></i></span></p>
+    <ul class="text-center ">
+      <li class="clip img-circle">
+        <i class="fa fa-css3"></i>
+        <span class="title_sub_tech">CSS3</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-github"></i>
+        <span class="title_sub_tech">Github</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-bitbucket"></i>
+        <span class="title_sub_tech">Bitbucket</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-twitter"></i>
+        <span class="title_sub_tech">Bootstrap</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-html5"></i>
+        <span class="title_sub_tech">HTML5</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/jquery.png" class="compass" />
+        <span class="title_sub_tech">JQuery</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-rss"></i>
+        <span class="title_sub_tech">RSS Feed</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-comments"></i>
+        <span class="title_sub_tech">DISQUS</span>
+      </li>
+      <li class="clip img-circle">
+        <img src="img/less.png" class="compass" />
+        <span class="title_sub_tech">Less</span>
+      </li>
+      <li class="clip img-circle">
+        <i class="fa fa-tablet"></i>
+        <span class="title_sub_tech">Responsive</span>
+      </li>
+      <li class="clear"></li>
+    </ul>
+  </div>
+
+  <div id="intro1" class="step" data-x="50000" data-y="600000" data-scale="10">
+    <p class="big">核心层介绍</p>
+  </div>
 
   <!-- Overview -->
-  <div id="overview" class="step" data-x="600000" data-y="400000" data-scale="1200"></div>
+  <div id="overview" class="step" data-x="600000" data-y="400000" data-scale="1500"></div>
 </div>
 
 
@@ -116,6 +226,29 @@ $(function() {
     });
     window.addEventListener('impress:stepleave', function() {
         $('.hidden.past').animate({'opacity': 0});
+    });
+    //frontend
+
+    window.addEventListener('impress:stepenter', function() {
+      $('#frontend.animar.active ul li').addClass('animated bounceIn');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#frontend.animar.past ul li').removeClass('animated bounceIn');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#frontend.animar.future ul li').removeClass('animated bounceIn');
+    });
+
+    //backend
+
+    window.addEventListener('impress:stepenter', function() {
+      $('#backend.animar.active ul li').addClass('animated bounceIn');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#backend.animar.past ul li').removeClass('animated bounceIn');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#backend.animar.future ul li').removeClass('animated bounceIn');
     });
 });
 </script>

@@ -52,10 +52,81 @@
     color: #333;
 }
 
+.middle {
+    font-family: LeagueGothicRegular, sans-serif;
+    font-size: 64px;
+    text-align: center;
+    text-shadow: 2px 2px 0 #BABABA;
+    color: #333;
+}
+
 .small {
     font-family: LeagueGothicRegular, sans-serif;
     font-size: 40px;
     text-align: center;
-    text-shadow: 3px 3px 0 #BABABA;
+    text-shadow: 2px 2px 0 #BABABA;
     color: #333;
+}
+
+
+
+
+
+
+.compass {
+    width: 65px;
+    height: 65px;
+}
+.salmon {
+    color: #f85d5d;
+}
+.clip {
+    margin: 10px;
+    width: 180px;
+    height: 180px;
+    background-color: #323639;
+    border: 1px solid #1f2224;
+    color: white;
+    float: left;
+    text-align: center;
+
+}
+.clip i {
+    display: block;
+    padding-top: 25px;
+    font-size: 1.3em;
+}
+.clip img {
+    padding-top: 25px;
+    display: block;
+    margin:0 auto;
+
+}
+.img-circle {
+    webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+}
+.animar ul li {
+    -webkit-transform: scale(0);
+    -moz-transform:    scale(0);
+    -ms-transform:     scale(0);
+    -o-transform:      scale(0);
+    transform:         scale(0);
+}
+.text-center {
+    text-align: center;
+}
+.title_sub_tech{
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    display: block;
+    text-align: center;
+}
+.tech-size {
+    font-family: LeagueGothicRegular, sans-serif;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 40px
 }
