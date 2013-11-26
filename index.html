@@ -328,34 +328,53 @@ registry.register(YourModel, YourModelPermissionHandler)
   <div id="core7" class="step slide" data-x="10000" data-y="580000" data-scale="10">
     <img src="img/admin2.png" style="margin-left:-10px" />
   </div>
-  <div id="core8" class="step slide animar" data-x="0" data-y="580000" data-scale="10">
+  <div id="core8" class="step slide" data-x="0" data-y="580000" data-scale="10">
     <p class="middle">其他通用组件</p>
-    <br />
-    <p class="move">1. rate 组件</p>
-    <p class="move">2. comment 组件</p>
-    <p class="move">3. message 组件</p>
-    <p class="move">4. chart 组件</p>
-    <p class="move">...</p>
+    <br /><br />
+    <p>1. rate 组件</p><br />
+    <p>2. comment 组件</p><br />
+    <p>3. message 组件</p><br />
+    <p>4. chart 组件</p><br />
+    <p>...</p><br />
   </div>
 
   <div id="app" class="step" data-x="0" data-y="590000" data-scale="10">
     <p class="big">应用程序介绍</p>
   </div>
   <div id="app1" class="step" data-x="10000" data-y="590000" data-scale="10">
-    <p>内容发布</p>
+    <span>内容发布</span>
+    <div style="color:#444">文章管理系统，具有类似页面程序的可扩展性特性，避免了页面过多构建树形目录时对数据库的大量消耗的，主要用来发布新闻或事件，在实验室管理中传达信息。</div>
   </div>
+  <div id="app1pic" class="step" data-x="10000" data-y="595000" data-scale="10">
+    <img src="img/app1.png" />
+  </div>
+
   <div id="app2" class="step" data-x="20000" data-y="590000" data-scale="10">
-    <p>知识库</p>
+    <span>知识库</span>
+    <div style="color:#444">功能类似维基百科的内容类应用程序。通过维基类应用程序，将疾控工作中总结的知识点整理成资料库的形式，方便查阅。</div>
   </div>
+  <div id="app2pic" class="step" data-x="20000" data-y="595000" data-scale="10">
+    <img src="img/app2.png" />
+  </div>
+
   <div id="app3" class="step" data-x="30000" data-y="590000" data-scale="10">
-    <p>问答</p>
+    <span>问答</span>
+    <div style="color:#444">用户可以发帖提问，在答案中用户可以根据有用程度进行排序，从而获得最佳答案。通过此应用程序，可以为区县各个疾控实验室明确所需开展的工作，解答工作中遇到的问题，反馈各个实验室提出的意见和建议；</div>
   </div>
+
   <div id="app4" class="step" data-x="40000" data-y="590000" data-scale="10">
-    <p>Entrez Follow</p>
+    <span>Entrez Follow</span>
+    <div style="color:#444">在信息平台构建检索条件，由服务器自动定期在NCBI数据库内进行检索，并在信息平台上反馈检索结果给用户。同时提供收藏和与他人分享记录的功能，方便研究团队共享数据；</div>
   </div>
+  <div id="app4pic" class="step" data-x="40000" data-y="595000" data-scale="10">
+    <img src="img/app4.png" />
+  </div>
+
   <div id="app5" class="step" data-x="50000" data-y="590000" data-scale="10">
-    <p>MLST区域数据库</p>
+    <span>MLST区域数据库</span>
+    <div style="color:#444">建立杭州地区的病原菌分子分型指纹库，方便各个实验室查询和溯源。</div>
   </div>
+
 
 <div id="deploy" class="step slide" data-x="150000" data-y="50000" data-scale="20">
   <p class="middle">平台部署</p>
@@ -368,7 +387,7 @@ registry.register(YourModel, YourModelPermissionHandler)
 <div id="heroku1" class="step slide" data-x="170000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
-<pre class="prettyprint lang-shell" style="border: 0px;">
+  <pre class="prettyprint lang-shell" style="border: 0px;">
 1. 建立虚拟python环境，安装heroku的django支持工具
 $ pip install django-toolbelt
 
@@ -377,13 +396,13 @@ web: gunicorn myproject.wsgi
 
 3. 本地运行测试
 $ foreman start
-</pre>
+  </pre>
 </div>
 
 <div id="heroku2" class="step slide" data-x="190000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
-<pre class="prettyprint lang-shell" style="border: 0px;">
+  <pre class="prettyprint lang-shell" style="border: 0px;">
 4. 设置项目settings.py
 import os
 import dj_database_url
@@ -400,12 +419,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-</pre>
+  </pre>
 </div>
 <div id="heroku3" class="step slide" data-x="210000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
-<pre class="prettyprint lang-shell" style="border: 0px;">
+  <pre class="prettyprint lang-shell" style="border: 0px;">
 5. deploy至heroku平台
 $ heroku create
 $ git push heroku master
@@ -413,7 +432,7 @@ $ git push heroku master
 6. 同步数据库
 $ heroku run python manage.py syncdb
 $ heroku run python manage.py migrate
-</pre>
+  </pre>
 </div>
 
 <div id="dotcloud1" class="step slide" data-x="170000" data-y="65000" data-scale="20">
@@ -436,6 +455,7 @@ $ dotcloud run db -- psql #配置数据库
 python createdb.py
 python manage.py syncdb --noinput
 python manage.py migrate
+  </pre>
 </div>
 
 <div id="dotcloud2" class="step slide" data-x="190000" data-y="65000" data-scale="20">
@@ -457,7 +477,7 @@ DATABASES = {
         'PORT': int(env['DOTCLOUD_DB_SQL_PORT']),
     }
 }
-</pre>
+  </pre>
 </div>
 
 <div id="appfog1" class="step slide" data-x="170000" data-y="80000" data-scale="20">
@@ -495,6 +515,16 @@ $ af update
   <pre># ab -n 1000 -c 10 http://127.0.0.1:8000/</pre>
   <br />
   <div id="performence"></div>
+</div>
+<div id="vps4" class="step slide" data-x="230000" data-y="95000" data-scale="20">
+  <p class="middle">建立实例</p>
+  <br />
+  <img src="img/hzcdclabs.png" style="margin-left:-55px" width="890px" />
+  <p style="text-align:center">网站地图</p>
+</div>
+<div id="vps5" class="step slide" data-x="250000" data-y="95000" data-scale="20">
+  <p class="middle">建立实例</p>
+  <img src="img/page.jpg" style="margin-left:-55px; margin-top: 15px" height="605px" width="890px" />
 </div>
 
 <div id="result" class="step slide" data-x="150000" data-y="110000" data-scale="20">
@@ -562,19 +592,7 @@ $(function() {
       $('#backend.animar.future ul li').removeClass('animated bounceIn');
     });
 
-    //backend
-    window.addEventListener('impress:stepenter', function() {
-      $('#core8.animar.active .move').addClass('animated slideInRight');
-    });
-    window.addEventListener('impress:stepenter', function() {
-      $('#core8.animar.past .move').removeClass('animated slideInRight');
-    });
-    window.addEventListener('impress:stepenter', function() {
-      $('#core8.animar.future .move').removeClass('animated slideInRight');
-    });
-
-});
-
+    //chart
     window.addEventListener('click', function () {
         $('#performence').highcharts({
             chart: {
@@ -635,7 +653,7 @@ $(function() {
             }]
         });
     });
-
+});
 </script>
 </body>
 </html>
