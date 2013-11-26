@@ -51,26 +51,16 @@
   </div>
 
   <div id="what2" class="step slide" data-x="50000" data-y="-13500" data-scale="2">
-    <p class="middle">特点</p>
+    <p class="middle">平台特点</p>
     <div class="content">
       <p class="small" style="text-align: left">松耦合，可扩展</p>
       <p class="small" style="text-align: left">跨平台，可支持移动终端</p>
+      <p class="small" style="text-align: left">支持第三方社交应用</p>
       <p class="small" style="text-align: left">开源程序</p>
     </div>
   </div>
 
-  <div id="what3" class="step slide" data-x="50000" data-y="-12000" data-scale="2">
-    <div style="text-align: center"><img src="img/1.png" /></div>
-    <pre class="prettyprint lang-python" style="border: 0px;">
-from django import get_vesion
-
-
-def new_def():
-    abc = go
-    </pre>
-  </div>
-
-  <div id="what4" class="step hidden" data-x="-5000" data-y="-5000" data-scale="200">
+  <div id="what3" class="step hidden" data-x="-5000" data-y="-5000" data-scale="200">
     <p class="huge" style="padding-right:61px">WHAT WE DO</p>
     <p style="margin-top: -60px" class="small">A Web Based Comunication & Applications System for CDC Labs</p>
   </div>
@@ -261,22 +251,113 @@ def new_def():
 
   <div id="core" class="step" data-x="80000" data-y="580000" data-scale="10">
     <p class="big">核心层介绍</p>
+    <p class="small">用户层+页面层+权限机制</p>
   </div>
-  <div id="core1" class="step" data-x="70000" data-y="580000" data-scale="10">
-    <p>1. 用户层</p>
-    <p>2. 页面层</p>
-    <p>3. 权限机制</p>
+  <div id="core1" class="step slide" data-x="70000" data-y="580000" data-scale="10">
+    <p class="middle">用户层</p>
+    <img style="padding: 50px 0px 0px 50px;" src="img/auth.png" width="75%" height="75%" />
+    <p style="text-align: center">用户程序数据结构</p>
   </div>
-  <div id="core2" class="step" data-x="60000" data-y="580000" data-scale="10">
-    <img src="img/hzcdclabs.png" style="margin-left:-80px"/>
+  <div id="core2" class="step slide" data-x="60000" data-y="580000" data-scale="10">
+    <p class="middle">用户扩展</p>
+    <br/>
+    <p>project/settings.py</p>
+    <pre class="prettyprint lang-python" style="border: 0px;">
+GAUTH_USER_EXTENSIONS = (
+    # 添加第三方应用的用户插件
+    'gauth.extensions.avatar',
+    'gauth.extensions.portfolio',
+    'ask.extensions.question',
+)
+    </pre>
+    <p>运行south更新数据表</p>
+    <pre class="prettyprint lang-shell" style="border: 0px;">
+# python manage.py schemamigration gauth --auto
+# python manage.py migrate gauth
+    </pre>
   </div>
 
-  <div id="app" class="step" data-x="50000" data-y="580000" data-scale="10">
+  <div id="core3" class="step slide" data-x="50000" data-y="580000" data-scale="10">
+    <p class="middle">页面扩展</p>
+    <br />
+    <p>gbase/models.py</p>
+    <pre class="prettyprint lang-python" style="border: 0px;">
+from cms.module.page.models import Page
+
+Page.register_extensions(
+    # 添加页面插件
+    'cms.module.extensions.datepublisher',
+    'cms.module.extensions.changedate',
+    'cms.module.page.extensions.navigation',
+    ...
+)
+    </pre>
+  </div>
+
+  <div id="core4" class="step slide" data-x="40000" data-y="580000" data-scale="10">
+    <p class="middle">定义权限机制</p>
+    <br />
+    <pre class="prettyprint lang-python" style="border: 0px;">
+from permission import registry
+from permission import PermissionHandler
+from app.models import YourModel
+
+class YourModelPermissionHandler(PermissionHandler):
+    """权限处理器 """
+    def has_perm(self, user_obj, perm, obj=None):
+        if user_obj.is_authenticated():
+            if perm == 'app.add_model':
+                return True
+            elif obj and obj.author == user_obj:
+                return True
+
+        return False
+
+registry.register(YourModel, YourModelPermissionHandler)
+</pre>
+  </div>
+
+  <div id="core5" class="step slide" data-x="30000" data-y="580000" data-scale="10">
+    <img src="img/admin1.png" style="padding-left:60px" />
+  </div>
+  <div id="core6" class="step slide" data-x="20000" data-y="580000" data-scale="10">
+    <img src="img/admin2.png" style="margin-left:-10px" />
+  </div>
+  <div id="core7" class="step slide" data-x="10000" data-y="580000" data-scale="10">
+    <p class="middle">其他通用组件</p>
+    <br />
+
+  </div>
+
+  <div id="app" class="step" data-x="10000" data-y="590000" data-scale="10">
     <p class="big">应用程序介绍</p>
   </div>
-  <div id="app1" class="step" data-x="50000" data-y="590000" data-scale="10">
-    <p>讨论区</p>
+  <div id="app1" class="step" data-x="20000" data-y="590000" data-scale="10">
+    <p>内容发布</p>
   </div>
+  <div id="app2" class="step" data-x="20000" data-y="590000" data-scale="10">
+    <p>知识库</p>
+  </div>
+  <div id="app3" class="step" data-x="20000" data-y="590000" data-scale="10">
+    <p>问答</p>
+  </div>
+  <div id="app4" class="step" data-x="20000" data-y="590000" data-scale="10">
+    <p>Entrez Follow</p>
+  </div>
+  <div id="app5" class="step" data-x="20000" data-y="590000" data-scale="10">
+    <p>MLST区域数据库</p>
+  </div>
+
+  <div id="code" class="step slide" data-x="50000" data-y="-12000" data-scale="2">
+    <div style="text-align: center"><img src="img/1.png" /></div>
+    <pre class="prettyprint lang-python" style="border: 0px;">
+from django import get_vesion
+
+def new_def():
+    version = get_version
+    </pre>
+  </div>
+
 
   <!-- Overview -->
   <div id="overview" class="step" data-x="600000" data-y="400000" data-scale="1500"></div>
