@@ -119,27 +119,27 @@
     <div>2009.12 - 2010.06: 查询资料，初步选择平台开发方案和工具，测试并选择
     程序应用依赖库，初步建立框架核心，在Github.com网站建立源代码库</div>
   </div>
-  <div id="how8" class="step" data-x="41200" data-y="518500" data-rotate-x="-15" data-scale="15">
+  <div id="how8" class="step" data-x="41200" data-y="518500" data-rotate-x="-10" data-scale="15">
     <div>2009.12 - 2010.06: 查询资料，初步选择平台开发方案和工具，测试并选择
     程序应用依赖库，初步建立框架核心，在Github.com网站建立源代码库</div>
   </div>
-  <div id="how9" class="step" data-x="41200" data-y="526500" data-rotate-x="-30" data-scale="14">
+  <div id="how9" class="step" data-x="41200" data-y="525500" data-rotate-x="-20" data-scale="14">
     <div>2010.06 - 2011.06: 开发平台核心层程序构架，建立可扩展的用户模型，可
     填充各种内容媒体和应用程序的页面树形结构和相应的权限机制，形成平台核心构架</div>
   </div>
-  <div id="how10" class="step" data-x="41200" data-y="534500" data-rotate-x="-45" data-scale="13">
+  <div id="how10" class="step" data-x="41200" data-y="532500" data-rotate-x="-30" data-scale="13">
     <div>2011.06 - 2011.09: 开发收藏，短信等功能的通用组件，设计并建立平台
     信息交流基础应用程序，开发知识库应用程序。开发男性同性恋HIV病毒监测预约登记程序</div>
   </div>
-  <div id="how11" class="step" data-x="41200" data-y="542500" data-rotate-x="-60" data-scale="12">
+  <div id="how11" class="step" data-x="41200" data-y="540500" data-rotate-x="-40" data-scale="12">
     <div>2011.09 - 2012.06: 建立区县微生物检验实验室盲样考核应用程序，上送
     菌株鉴定反馈应用程序。初步建立区域化的病原菌MLST数据库平台，建立基于互
     联网的Entrez数据自动跟踪应用程序</div>
   </div>
-  <div id="how12" class="step" data-x="41200" data-y="550500" data-rotate-x="-75" data-scale="11">
+  <div id="how12" class="step" data-x="41200" data-y="550500" data-rotate-x="-50" data-scale="11">
     <div>2012.06 - 2012.09: 添加基于Oauth2和OpenID技术的用户登录功能，用户层接口与galaxy project的用户层进行对接。在dotcloud，heroku和appfog云平台部署测试</div>
   </div>
-  <div id="how13" class="step" data-x="41200" data-y="558500" data-rotate-x="-90" data-scale="10">
+  <div id="how13" class="step" data-x="41200" data-y="558500" data-rotate-x="-60" data-scale="10">
     <div>2012.09 - 2013.09: 在虚拟服务器VPS部署与测试，对VPS部署的应用程序
     进行性能优化，撰写相关论文与总结报告</div>
   </div>
@@ -357,7 +357,7 @@ registry.register(YourModel, YourModelPermissionHandler)
     <p>MLST区域数据库</p>
   </div>
 
-<div id="deploy" class="step slide" data-x="50000" data-y="50000" data-scale="20">
+<div id="deploy" class="step slide" data-x="150000" data-y="50000" data-scale="20">
   <p class="middle">平台部署</p>
   <br /><br />
   <p>基于PaaS的云平台：Heroku, dotcloud, appfog</p>
@@ -365,7 +365,7 @@ registry.register(YourModel, YourModelPermissionHandler)
   <p>基于Linux系统的虚拟服务器Virtual Private Server</p>
   <img src="img/vps.png" />
 </div>
-<div id="heroku1" class="step slide" data-x="70000" data-y="50000" data-scale="20">
+<div id="heroku1" class="step slide" data-x="170000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
 <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -380,7 +380,7 @@ $ foreman start
 </pre>
 </div>
 
-<div id="heroku2" class="step slide" data-x="90000" data-y="50000" data-scale="20">
+<div id="heroku2" class="step slide" data-x="190000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
 <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -402,7 +402,7 @@ STATICFILES_DIRS = (
 )
 </pre>
 </div>
-<div id="heroku3" class="step slide" data-x="110000" data-y="50000" data-scale="20">
+<div id="heroku3" class="step slide" data-x="210000" data-y="50000" data-scale="20">
   <p class="middle">Heroku部署</p>
   <br />
 <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -416,7 +416,7 @@ $ heroku run python manage.py migrate
 </pre>
 </div>
 
-<div id="dotcloud1" class="step slide" data-x="70000" data-y="65000" data-scale="20">
+<div id="dotcloud1" class="step slide" data-x="170000" data-y="65000" data-scale="20">
   <p class="middle">Dotcloud部署</p>
   <br />
   <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -438,7 +438,7 @@ python manage.py syncdb --noinput
 python manage.py migrate
 </div>
 
-<div id="dotcloud2" class="step slide" data-x="90000" data-y="65000" data-scale="20">
+<div id="dotcloud2" class="step slide" data-x="190000" data-y="65000" data-scale="20">
   <p class="middle">Dotcloud部署</p>
   <br />
   <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -460,7 +460,7 @@ DATABASES = {
 </pre>
 </div>
 
-<div id="appfog1" class="step slide" data-x="70000" data-y="80000" data-scale="20">
+<div id="appfog1" class="step slide" data-x="170000" data-y="80000" data-scale="20">
   <p class="middle">AppFog部署</p>
   <br />
   <pre class="prettyprint lang-shell" style="border: 0px;">
@@ -471,7 +471,7 @@ $ af update
 </pre>
 </div>
 
-<div id="vps1" class="step slide" data-x="70000" data-y="95000" data-scale="20">
+<div id="vps1" class="step slide" data-x="170000" data-y="95000" data-scale="20">
   <p class="middle">VPS部署</p>
   <br /><br />
   <p>1. 安装Linux发行版，比如Ubuntu</p><br />
@@ -481,7 +481,7 @@ $ af update
   <p>5. 安装gunicorn, memecache, redis, celery等</p><br />
   <p>6. 创建虚拟python运行环境，克隆代码库，运行项目</p>
 </div>
-<div id="vps2" class="step slide" data-x="90000" data-y="95000" data-scale="20">
+<div id="vps2" class="step slide" data-x="190000" data-y="95000" data-scale="20">
   <p class="middle">VPS硬件配置</p>
   <br /><br /><br />
   <p class="small">单核CPU</p><br />
@@ -489,7 +489,7 @@ $ af update
   <p class="small">20G Raid10 硬盘</p><br />
   <p class="small">10M专线，1000G流量</p>
 </div>
-<div id="vps3" class="step slide" data-x="110000" data-y="95000" data-scale="20">
+<div id="vps3" class="step slide" data-x="210000" data-y="95000" data-scale="20">
   <p class="middle">VPS性能优化与测试</p>
   <br />
   <pre># ab -n 1000 -c 10 http://127.0.0.1:8000/</pre>
@@ -497,21 +497,21 @@ $ af update
   <div id="performence"></div>
 </div>
 
-<div id="result" class="step slide" data-x="50000" data-y="110000" data-scale="20">
+<div id="result" class="step slide" data-x="150000" data-y="110000" data-scale="20">
   <p class="middle">总结</p>
 </div>
 
-<div id="own" class="step slide" data-x="50000" data-y="125000" data-scale="20">
+<div id="own" class="step slide" data-x="150000" data-y="125000" data-scale="20">
   <p class="middle">收获与不足</p>
   <br /><br />
   <div style="text-align: center"><img src="img/1.png" /></div>
 </div>
 
-<div id="future" class="step slide" data-x="50000" data-y="140000" data-scale="20">
+<div id="future" class="step slide" data-x="150000" data-y="140000" data-scale="20">
   <p class="middle">下一步展望</p>
 </div>
 
-<div id="thanks" class="step slide" data-x="50000" data-y="155000" data-scale="20">
+<div id="thanks" class="step slide" data-x="150000" data-y="155000" data-scale="20">
   <p class="middle">致谢</p>
   <br />
   <p>感谢杭州市科技局将本课题列入杭州市科技发展计划（引导计划）项目。</p><br />
@@ -523,7 +523,7 @@ $ af update
 </div>
 
   <!-- Overview -->
-  <div id="overview" class="step" data-x="60000" data-y="300000" data-scale="1000"></div>
+  <div id="overview" class="step" data-x="160000" data-y="300000" data-scale="1000"></div>
 
 </div>
 
