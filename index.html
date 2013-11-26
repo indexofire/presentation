@@ -273,8 +273,8 @@ GAUTH_USER_EXTENSIONS = (
     </pre>
     <p>运行south更新数据表</p>
     <pre class="prettyprint lang-shell" style="border: 0px;">
-# python manage.py schemamigration gauth --auto
-# python manage.py migrate gauth
+$ python manage.py schemamigration gauth --auto
+$ python manage.py migrate gauth
     </pre>
   </div>
 
@@ -324,56 +324,207 @@ registry.register(YourModel, YourModelPermissionHandler)
 
   <div id="core6" class="step slide" data-x="20000" data-y="580000" data-scale="10">
     <img src="img/admin1.png" style="padding-left:60px" />
-    <p class="small" style="margin-top: 30px">用户管理界面</p>
   </div>
   <div id="core7" class="step slide" data-x="10000" data-y="580000" data-scale="10">
     <img src="img/admin2.png" style="margin-left:-10px" />
   </div>
-  <div id="core8" class="step slide" data-x="0" data-y="580000" data-scale="10">
+  <div id="core8" class="step slide animar" data-x="0" data-y="580000" data-scale="10">
     <p class="middle">其他通用组件</p>
     <br />
-    <p></p>
+    <p class="move">1. rate 组件</p>
+    <p class="move">2. comment 组件</p>
+    <p class="move">3. message 组件</p>
+    <p class="move">4. chart 组件</p>
+    <p class="move">...</p>
   </div>
 
-  <div id="app" class="step" data-x="10000" data-y="590000" data-scale="10">
+  <div id="app" class="step" data-x="0" data-y="590000" data-scale="10">
     <p class="big">应用程序介绍</p>
   </div>
-  <div id="app1" class="step" data-x="20000" data-y="590000" data-scale="10">
+  <div id="app1" class="step" data-x="10000" data-y="590000" data-scale="10">
     <p>内容发布</p>
   </div>
   <div id="app2" class="step" data-x="20000" data-y="590000" data-scale="10">
     <p>知识库</p>
   </div>
-  <div id="app3" class="step" data-x="20000" data-y="590000" data-scale="10">
+  <div id="app3" class="step" data-x="30000" data-y="590000" data-scale="10">
     <p>问答</p>
   </div>
-  <div id="app4" class="step" data-x="20000" data-y="590000" data-scale="10">
+  <div id="app4" class="step" data-x="40000" data-y="590000" data-scale="10">
     <p>Entrez Follow</p>
   </div>
-  <div id="app5" class="step" data-x="20000" data-y="590000" data-scale="10">
+  <div id="app5" class="step" data-x="50000" data-y="590000" data-scale="10">
     <p>MLST区域数据库</p>
   </div>
 
-  <div id="code" class="step slide" data-x="50000" data-y="-12000" data-scale="2">
-    <div style="text-align: center"><img src="img/1.png" /></div>
-    <pre class="prettyprint lang-python" style="border: 0px;">
-from django import get_vesion
-
-def new_def():
-    version = get_version
-    </pre>
-  </div>
-
-<div id="deploy" class="step" data-x="50000" data-y="50000" data-scale="20">
-
+<div id="deploy" class="step slide" data-x="50000" data-y="50000" data-scale="20">
+  <p class="middle">平台部署</p>
+  <br /><br />
+  <p>基于PaaS的云平台：Heroku, dotcloud, appfog</p>
+  <img src="img/paas.png" />
+  <p>基于Linux系统的虚拟服务器Virtual Private Server</p>
+  <img src="img/vps.png" />
 </div>
-<div id="paas1" class="step" data-x="50000" data-y="60000" data-scale="20">
+<div id="heroku1" class="step slide" data-x="70000" data-y="50000" data-scale="20">
+  <p class="middle">Heroku部署</p>
+  <br />
+<pre class="prettyprint lang-shell" style="border: 0px;">
+1. 建立虚拟python环境，安装heroku的django支持工具
+$ pip install django-toolbelt
 
+2. 修改Procfile配置文件
+web: gunicorn myproject.wsgi
+
+3. 本地运行测试
+$ foreman start
+</pre>
 </div>
 
+<div id="heroku2" class="step slide" data-x="90000" data-y="50000" data-scale="20">
+  <p class="middle">Heroku部署</p>
+  <br />
+<pre class="prettyprint lang-shell" style="border: 0px;">
+4. 设置项目settings.py
+import os
+import dj_database_url
+
+DATABASES['default'] =  dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = (
+    'HTTP_X_FORWARDED_PROTO',
+    'https',
+)
+ALLOWED_HOSTS = ['*']
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+</pre>
+</div>
+<div id="heroku3" class="step slide" data-x="110000" data-y="50000" data-scale="20">
+  <p class="middle">Heroku部署</p>
+  <br />
+<pre class="prettyprint lang-shell" style="border: 0px;">
+5. deploy至heroku平台
+$ heroku create
+$ git push heroku master
+
+6. 同步数据库
+$ heroku run python manage.py syncdb
+$ heroku run python manage.py migrate
+</pre>
+</div>
+
+<div id="dotcloud1" class="step slide" data-x="70000" data-y="65000" data-scale="20">
+  <p class="middle">Dotcloud部署</p>
+  <br />
+  <pre class="prettyprint lang-shell" style="border: 0px;">
+1. 编辑配置文件dotcloud.yml
+www:
+  type: python
+db:
+  type: postgresql
+
+2. 创建dotcloud应用
+$ dotcloud create myproject
+$ dotcloud push
+$ dotcloud run db -- psql #配置数据库
+
+3. 设置安装后自动配置脚本postinstall
+#!/bin/sh
+python createdb.py
+python manage.py syncdb --noinput
+python manage.py migrate
+</div>
+
+<div id="dotcloud2" class="step slide" data-x="90000" data-y="65000" data-scale="20">
+  <p class="middle">Dotcloud部署</p>
+  <br />
+  <pre class="prettyprint lang-shell" style="border: 0px;">
+4. 配置settings.py文件
+import json
+with open('/home/dotcloud/environment.json') as f:
+    env = json.load(f)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'happydb',
+        'USER': env['DOTCLOUD_DB_SQL_LOGIN'],
+        'PASSWORD': env['DOTCLOUD_DB_SQL_PASSWORD'],
+        'HOST': env['DOTCLOUD_DB_SQL_HOST'],
+        'PORT': int(env['DOTCLOUD_DB_SQL_PORT']),
+    }
+}
+</pre>
+</div>
+
+<div id="appfog1" class="step slide" data-x="70000" data-y="80000" data-scale="20">
+  <p class="middle">AppFog部署</p>
+  <br />
+  <pre class="prettyprint lang-shell" style="border: 0px;">
+1. 进入Appfog管理台设置，获取数据库等参数，设置环境变量
+
+2. 根据配置修改settings.py，上传同步代码
+$ af update
+</pre>
+</div>
+
+<div id="vps1" class="step slide" data-x="70000" data-y="95000" data-scale="20">
+  <p class="middle">VPS部署</p>
+  <br /><br />
+  <p>1. 安装Linux发行版，比如Ubuntu</p><br />
+  <p>2. 配置openssl，防火墙等</p><br />
+  <p>3. apt-get install 安装编译依赖库，其他必须软件</p><br />
+  <p>4. 安装web服务器nginx，数据库PostgreSQL</p><br />
+  <p>5. 安装gunicorn, memecache, redis, celery等</p><br />
+  <p>6. 创建虚拟python运行环境，克隆代码库，运行项目</p>
+</div>
+<div id="vps2" class="step slide" data-x="90000" data-y="95000" data-scale="20">
+  <p class="middle">VPS硬件配置</p>
+  <br /><br /><br />
+  <p class="small">单核CPU</p><br />
+  <p class="small">512M内存</p><br />
+  <p class="small">20G Raid10 硬盘</p><br />
+  <p class="small">10M专线，1000G流量</p>
+</div>
+<div id="vps3" class="step slide" data-x="110000" data-y="95000" data-scale="20">
+  <p class="middle">VPS性能优化与测试</p>
+  <br />
+  <pre># ab -n 1000 -c 10 http://127.0.0.1:8000/</pre>
+  <br />
+  <div id="performence"></div>
+</div>
+
+<div id="result" class="step slide" data-x="50000" data-y="110000" data-scale="20">
+  <p class="middle">总结</p>
+</div>
+
+<div id="own" class="step slide" data-x="50000" data-y="125000" data-scale="20">
+  <p class="middle">收获与不足</p>
+  <br /><br />
+  <div style="text-align: center"><img src="img/1.png" /></div>
+</div>
+
+<div id="future" class="step slide" data-x="50000" data-y="140000" data-scale="20">
+  <p class="middle">下一步展望</p>
+</div>
+
+<div id="thanks" class="step slide" data-x="50000" data-y="155000" data-scale="20">
+  <p class="middle">致谢</p>
+  <br />
+  <p>感谢杭州市科技局将本课题列入杭州市科技发展计划（引导计划）项目。</p><br />
+  <p>感谢杭州市科技局农村与社会发展处领导、杭州市卫生局科教处领导、杭州市疾病预防控制中心领导和中心科教科对本课题的大力支持。</p><br />
+  <p>感谢本课题组成员为完成本课题所做的贡献。<p><br />
+  <p>感谢杭州市疾病预防控制中心微生物检验科各位同事的大力支持和配合。感谢杭州市疾病预防控制中心性病与艾滋病防治所给予的支持</p><br />
+  <p style="padding: 30px 0px 0px 600px">俞 骅<br />2013-11-27</p>
+</p>
+</div>
 
   <!-- Overview -->
-  <div id="overview" class="step" data-x="600000" data-y="400000" data-scale="1500"></div>
+  <div id="overview" class="step" data-x="60000" data-y="300000" data-scale="1000"></div>
+
 </div>
 
 
@@ -411,7 +562,80 @@ $(function() {
       $('#backend.animar.future ul li').removeClass('animated bounceIn');
     });
 
+    //backend
+    window.addEventListener('impress:stepenter', function() {
+      $('#core8.animar.active .move').addClass('animated slideInRight');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#core8.animar.past .move').removeClass('animated slideInRight');
+    });
+    window.addEventListener('impress:stepenter', function() {
+      $('#core8.animar.future .move').removeClass('animated slideInRight');
+    });
+
 });
+
+    window.addEventListener('click', function () {
+        $('#performence').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '不同页面使用优化前后的req/s值'
+            },
+            xAxis: {
+                categories: ['Page1', 'page2', 'Page3', 'Page4'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'req/s',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' req/s'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: '默认',
+                data: [10.15, 9.89, 4.74, 9.65]
+            }, {
+                name: '数据库优化',
+                data: [14.10, 13.65, 7.29, 11.98]
+            }, {
+                name: '缓存设置',
+                data: [37.29, 24.05, 19.80, 29.03]
+            }]
+        });
+    });
+
 </script>
 </body>
 </html>
