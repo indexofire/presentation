@@ -7,19 +7,21 @@
   <title>杭州疾控系统实验室信息交流平台的研究</title>
   <meta name="description" content="a project presentation" />
   <meta name="author" content="Mark Renton" />
+  <link href="css/prettify.css" rel="stylesheet" />
   <link href="css/impress-demo.css" rel="stylesheet" />
   <link href="css/custom.css" rel="stylesheet" />
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/animate.min.css" rel="stylesheet" />
+
   <link rel="shortcut icon" href="img/favicon.png" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <script src="js/jquery.min.js"></script>
   <script src="js/highcharts.js"></script>
   <script src="js/d3.v3.min.js"></script>
+  <script src="js/prettify/prettify.js"></script>
 </head>
 
-<body class="impress-not-supported">
-
+<body class="impress-not-supported" onload="prettyPrint()">
 <div class="fallback-message">
   <!-- Warning if old browser -->
   <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
@@ -41,17 +43,31 @@
   </div>
 
   <div id="what1" class="step slide" data-x="50000" data-y="-15000" data-scale="2">
-    <p>1. 计算机技术的发展</p>
-    <p>2. 网络实验室的建立</p>
-    <p>3. 工具的需要</p>
+    <p class="middle">Browser/Server构架信息平台</p>
+    <div class="content">
+      <p class="small" style="text-align: left">服务对象：疾控实验室</p>
+      <p class="small" style="text-align: left">研究方式：程序开发和部署</p>
+    </div>
   </div>
 
   <div id="what2" class="step slide" data-x="50000" data-y="-13500" data-scale="2">
-    <p class="big">Features</p>
+    <p class="middle">特点</p>
+    <div class="content">
+      <p class="small" style="text-align: left">松耦合，可扩展</p>
+      <p class="small" style="text-align: left">跨平台，可支持移动终端</p>
+      <p class="small" style="text-align: left">开源程序</p>
+    </div>
   </div>
 
   <div id="what3" class="step slide" data-x="50000" data-y="-12000" data-scale="2">
     <div style="text-align: center"><img src="img/1.png" /></div>
+    <pre class="prettyprint lang-python" style="border: 0px;">
+from django import get_vesion
+
+
+def new_def():
+    abc = go
+    </pre>
   </div>
 
   <div id="what4" class="step hidden" data-x="-5000" data-y="-5000" data-scale="200">

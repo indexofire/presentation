@@ -12,6 +12,11 @@
     opacity:0;
 }
 
+pre {
+    font-family: Inconsolata, monospace;
+}
+
+
 #title {
     text-align: center;
     margin-top: -50px;
@@ -68,9 +73,12 @@
     color: #333;
 }
 
-
-
-
+.content {
+    padding-top: 60px;
+}
+.content p {
+    line-height: 60px;
+}
 
 
 .compass {
