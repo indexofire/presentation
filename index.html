@@ -293,7 +293,7 @@ Page.register_extensions(
     </pre>
   </div>
   <div id="core4" class="step slide" data-x="40000" data-y="580000" data-scale="10">
-    <p class="middle">树型目录组织页面</p>
+    <p class="middle">django-mptt构建树型目录</p>
     <br />
     <img style="padding: 0px 40px" src="img/tree.png" width="700px" height="585px" />
   </div>
@@ -329,7 +329,7 @@ registry.register(YourModel, YourModelPermissionHandler)
   <div id="core8" class="step slide" data-x="0" data-y="580000" data-scale="10">
     <p class="middle">其他通用组件</p>
     <br /><br />
-    <p>1. rate 组件</p><br />
+    <p>1. vote 组件</p><br />
     <p>2. comment 组件</p><br />
     <p>3. message 组件</p><br />
     <p>4. chart 组件</p><br />
@@ -344,7 +344,7 @@ registry.register(YourModel, YourModelPermissionHandler)
     <div style="color:#444">文章管理系统，具有类似页面程序的可扩展性特性，避免了页面过多构建树形目录时对数据库的大量消耗的，主要用来发布新闻或事件，在实验室管理中传达信息。</div>
   </div>
   <div id="app1pic" class="step" data-x="10000" data-y="595000" data-scale="10">
-    <img src="img/app1.png" />
+    <img src="img/app1.png" width="820px" />
   </div>
 
   <div id="app2" class="step" data-x="20000" data-y="590000" data-scale="10">
@@ -352,25 +352,30 @@ registry.register(YourModel, YourModelPermissionHandler)
     <div style="color:#444">功能类似维基百科的内容类应用程序。通过维基类应用程序，将疾控工作中总结的知识点整理成资料库的形式，方便查阅。</div>
   </div>
   <div id="app2pic" class="step" data-x="20000" data-y="595000" data-scale="10">
-    <img src="img/app2.png" />
+    <img src="img/app2.png" width="820px" />
   </div>
 
   <div id="app3" class="step" data-x="30000" data-y="590000" data-scale="10">
     <span>问答</span>
     <div style="color:#444">用户可以发帖提问，在答案中用户可以根据有用程度进行排序，从而获得最佳答案。通过此应用程序，可以为区县各个疾控实验室明确所需开展的工作，解答工作中遇到的问题，反馈各个实验室提出的意见和建议；</div>
   </div>
-
+  <div id="app3pic" class="step" data-x="30000" data-y="595000" data-scale="10">
+    <img src="img/app3.png" width="820px" />
+  </div>
   <div id="app4" class="step" data-x="40000" data-y="590000" data-scale="10">
     <span>Entrez Follow</span>
     <div style="color:#444">在信息平台构建检索条件，由服务器自动定期在NCBI数据库内进行检索，并在信息平台上反馈检索结果给用户。同时提供收藏和与他人分享记录的功能，方便研究团队共享数据；</div>
   </div>
   <div id="app4pic" class="step" data-x="40000" data-y="595000" data-scale="10">
-    <img src="img/app4.png" />
+    <img src="img/app4.png" width="820px" />
   </div>
 
   <div id="app5" class="step" data-x="50000" data-y="590000" data-scale="10">
     <span>MLST区域数据库</span>
     <div style="color:#444">建立杭州地区的病原菌分子分型指纹库，方便各个实验室查询和溯源。</div>
+  </div>
+  <div id="app5pic" class="step" data-x="50000" data-y="595000" data-scale="10">
+    <img src="img/app5.png" width="820px" />
   </div>
 
 <div id="deploy" class="step slide" data-x="150000" data-y="50000" data-scale="20">
@@ -526,6 +531,12 @@ $ af update
 
 <div id="result" class="step slide" data-x="150000" data-y="110000" data-scale="20">
   <p class="middle">总结</p>
+  <br /><br />
+  <p>1. 建立了松耦合的开放式的平台，在平台上开发了信息交流和工作应用的程序</p><br />
+  <p>2. 为数据型，分布式等应用开发了示范类应用程序</p><br />
+  <p>3. 支持社交账户接入，响应式设计支持移动终端的不同分辨率</p><br />
+  <p>4. 比较了系统程序在PaaS的云平台和VPS的优劣，建立了杭州疾控中心实验室网站实例</p><br />
+  <p>5. 作为开源软件免费使用</p>
 </div>
 
 <div id="own" class="step slide" data-x="150000" data-y="125000" data-scale="20">
